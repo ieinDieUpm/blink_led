@@ -1,7 +1,7 @@
 /**
  * @file port_led.h
  * @author Román Cárdenas (r.cardenas@upm.es)
- * @brief Port layer for the LED of the STM32F4 Nucleo board.
+ * @brief Port layer for the emulation of a LED of an embedded system in the native platform.
  * @date 01-01-2024
  */
 #ifndef PORT_LED_H_
