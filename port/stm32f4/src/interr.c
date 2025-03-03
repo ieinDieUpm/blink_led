@@ -4,9 +4,11 @@
  * @author Román Cárdenas (r.cardenas@upm.es)
  * @date 2024-01-01
  */
-// Include headers of different port elements:
-#include "stm32f4xx.h"
+// Include HW dependencies:
 #include "port_system.h"
+#include "stm32f4_system.h"
+
+// Include headers of different port elements:
 
 //------------------------------------------------------
 // INTERRUPT SERVICE ROUTINES

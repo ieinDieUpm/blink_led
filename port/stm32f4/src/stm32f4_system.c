@@ -1,12 +1,13 @@
 /**
- * @file port_system.c
+ * @file stm32f4_system.c
  * @author Josué Pagán Ortiz (j.pagan@upm.es)
  * @brief Port layer for the system functions in the STM32F4 platform.
- * @date 01-01-2024
+ * @date 01-03-2025
  */
 
 /* HW dependent includes */
 #include "port_system.h"
+#include "stm32f4_system.h"
 #include "stm32f4xx.h"
 
 //------------------------------------------------------

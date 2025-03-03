@@ -1,20 +1,16 @@
 /**
  * @file port_system.h
  * @author Josue Pagán Ortiz (j.pagan@upm.es)
- * @brief System functions for the STM32F4 platform.
- * @date 01-01-2024
+ * @brief Header file for the system port layer.
+ * @date 01-03-2025
  */
 
 #ifndef PORT_SYSTEM_H_
 #define PORT_SYSTEM_H_
 
-/* Includes ------------------------------------------------------------------*/
-/* Standard C includes */
+/* Includes del sistema */
 #include <stdint.h>
 
-/* Defines ------------------------------------------------------------------*/
-
-/* Function prototypes and explanations ---------------------------------------*/
 /**
  * @brief Initializes the system.
  */
@@ -23,7 +19,7 @@ uint32_t port_system_init(void);
 /**
  * @brief Returns the number of milliseconds since the system started.
  *
- * @return uint32_t number of milliseconds since the system started.
+ * @retval number of milliseconds since the system started.
  */
 uint32_t port_system_get_millis(void);
 

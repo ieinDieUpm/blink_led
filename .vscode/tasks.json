@@ -2,6 +2,16 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+            "label": "Open TCP Socket",
+            "type": "shell",
+            "command": "nc",
+            "args": [
+                "-l",
+                "3333"
+            ],
+            "problemMatcher": [],
+        },
+		{
 			"label": "cortex-debug: Run CMake (stm32f446re)", // PORTABILITY: change this to your platform
 			"options": {
 				"cwd": "${workspaceRoot}"
@@ -12,15 +22,17 @@
 			"command": "cmake",
 			"args": [
 				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
-				"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DUSE_SEMIHOSTING=true",
 			],
 			"windows": {
 				"args": [
 					"-G", "MinGW Makefiles",
 					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
-					"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
+					"-DUSE_SEMIHOSTING=true",
 				]
 			}
 		},
@@ -36,48 +48,25 @@
 			"args": [
 				"--fresh", 
 				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
-				"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DUSE_SEMIHOSTING=true",
 			],
 			"windows": {
 				"args": [
 					"--fresh",
 					"-G", "MinGW Makefiles",
 					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
-					"-DPLATFORM=stm32f446re", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
-				]
-			}
-		},
-		{
-			"label": "native: Run CMake, Fresh",
-			"options": {
-				"cwd": "${workspaceRoot}"
-			},
-			"group": {
-				"kind": "build",
-			},
-			"command": "cmake",
-			"args": [
-				"--fresh", 
-				"-Bbuild/native/Debug",
-				"-DPLATFORM=native",
-				"-DCMAKE_BUILD_TYPE=Debug",
-			],
-			"windows": {
-				"args": [
-					"--fresh",
-					"-G", "MinGW Makefiles",
-					"-Bbuild/native/Debug",
-					"-DPLATFORM=native",
-					"-DCMAKE_BUILD_TYPE=Debug",
+					"-DUSE_SEMIHOSTING=true",
 				]
 			}
 		},
 		{
 			"label": "cortex-debug: Build (stm32f446re)", // PORTABILITY: change this to your platform
 			"dependsOn": [
-				"cortex-debug: Run CMake (stm32f446re)" // PORTABILITY: change this to your platform
+				"cortex-debug: Run CMake (stm32f446re)"   // PORTABILITY: change this to your platform
 			],
 			"options": {
 				"cwd": "${workspaceRoot}"
@@ -86,13 +75,13 @@
 				"kind": "build"
 			},
 			"command": "make",
-			"windows": {
-				"command": "mingw32-make"
-			},
 			"args": [
 				"-Cbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 				"${input:launchTargetID}",
-			]
+			],
+			"windows": {
+				"command": "mingw32-make"
+			}
 		},
 		{
 			"label": "cortex-debug: Clean (stm32f446re)", // PORTABILITY: change this to your platform
@@ -103,13 +92,13 @@
 				"kind": "build"
 			},
 			"command": "make",
-			"windows": {
-				"command": "mingw32-make"
-			},
 			"args": [
 				"-Cbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 				"clean",
-			]
+			],
+			"windows": {
+				"command": "mingw32-make"
+			}
 		},
 		{
 			"label": "cortex-debug: Clean and Build (stm32f446re)", // PORTABILITY: change this to your platform
@@ -121,16 +110,7 @@
 			"dependsOrder": "sequence",
 		},
 		{
-			"label": "Clean and Build (native)",
-			"dependsOn": [
-				"native: Run CMake, Fresh",
-				"native: Clean",
-				"native: Build",
-			],
-			"dependsOrder": "sequence",
-		},
-		{
-			"label": "native: Run CMake",
+		    "label": "cortex-debug: Run CMake (stm32f405rg)", // PORTABILITY: change this to your platform
 			"options": {
 				"cwd": "${workspaceRoot}"
 			},
@@ -139,40 +119,93 @@
 			},
 			"command": "cmake",
 			"args": [
-				"--fresh",
-				"-Bbuild/native/Debug",
-				"-DPLATFORM=native",
+				"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f405rg",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DUSE_SEMIHOSTING=true",
 			],
 			"windows": {
 				"args": [
 					"-G", "MinGW Makefiles",
-					"-Bbuild/native/Debug",
-					"-DPLATFORM=native",
+					"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f405rg",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
+					"-DUSE_SEMIHOSTING=true",
 				]
 			}
 		},
 		{
-			"label": "native: Build",
-			"dependsOn": [
-				"native: Run CMake"
-			],
+			"label": "cortex-debug: Run CMake, Fresh (stm32f405rg)", // PORTABILITY: change this to your platform
 			"options": {
 				"cwd": "${workspaceRoot}"
 			},
 			"group": {
 				"kind": "build",
-				"isDefault": true
+			},
+			"command": "cmake",
+			"args": [
+				"--fresh", 
+				"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+				"-DPLATFORM=stm32f405rg", // PORTABILITY: change this to your platform
+				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DUSE_SEMIHOSTING=true",
+			],
+			"windows": {
+				"args": [
+					"--fresh",
+					"-G", "MinGW Makefiles",
+					"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+					"-DPLATFORM=stm32f405rg", // PORTABILITY: change this to your platform
+					"-DCMAKE_BUILD_TYPE=Debug",
+					"-DUSE_SEMIHOSTING=true",
+				]
+			}
+		},
+		{
+			"label": "cortex-debug: Build (stm32f405rg)", // PORTABILITY: change this to your platform
+			"dependsOn": [
+				"cortex-debug: Run CMake (stm32f405rg)" // PORTABILITY: change this to your platform
+			],
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
 			},
 			"command": "make",
+			"args": [
+				"-Cbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+				"${input:launchTargetID}",
+			],
 			"windows": {
 				"command": "mingw32-make"
 			},
+		},
+		{
+			"label": "cortex-debug: Clean (stm32f405rg)", // PORTABILITY: change this to your platform
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"command": "make",
 			"args": [
-				"-Cbuild/native/Debug",
-				"${input:launchTargetID}",
+				"-Cbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
+				"clean",
 			],
+			"windows": {
+				"command": "mingw32-make"
+			}
+		},
+		{
+			"label": "cortex-debug: Clean and Build (stm32f405rg)", // PORTABILITY: change this to your platform
+			"dependsOn": [
+				"cortex-debug: Run CMake, Fresh (stm32f405rg)", // PORTABILITY: change this to your platform
+				"cortex-debug: Clean (stm32f405rg)", // PORTABILITY: change this to your platform
+				"cortex-debug: Build (stm32f405rg)", // PORTABILITY: change this to your platform				
+			],
+			"dependsOrder": "sequence",
 		},
 		{
 			"label": "Run CMake",
@@ -187,6 +220,7 @@
 				"-Bbuild/${input:platformID}/${input:buildType}",
 				"-DPLATFORM=${input:platformID}",
 				"-DCMAKE_BUILD_TYPE=${input:buildType}",
+				"-DUSE_SEMIHOSTING=${input:useSemihosting}",
 			],
 			"windows": {
 				"args": [
@@ -194,6 +228,7 @@
 					"-Bbuild/${input:platformID}/${input:buildType}",
 					"-DPLATFORM=${input:platformID}",
 					"-DCMAKE_BUILD_TYPE=${input:buildType}",
+					"-DUSE_SEMIHOSTING=${input:useSemihosting}",
 				]
 			}
 		},
@@ -211,6 +246,7 @@
 				"-Bbuild/${input:platformID}/${input:buildType}",
 				"-DPLATFORM=${input:platformID}",
 				"-DCMAKE_BUILD_TYPE=${input:buildType}",
+				"-DUSE_SEMIHOSTING=${input:useSemihosting}",
 			],
 			"windows": {
 				"args": [
@@ -219,6 +255,7 @@
 					"-Bbuild/${input:platformID}/${input:buildType}",
 					"-DPLATFORM=${input:platformID}",
 					"-DCMAKE_BUILD_TYPE=${input:buildType}",
+					"-DUSE_SEMIHOSTING=${input:useSemihosting}",
 				]
 			}
 		},
@@ -241,6 +278,23 @@
 			]
 		},
 		{
+			"label": "Erase",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/${input:platformID}/${input:buildType}",
+				"erase",
+			]
+		},
+		{
 			"label": "Flash",
 			"options": {
 				"cwd": "${workspaceRoot}"
@@ -255,6 +309,23 @@
 			"args": [
 				"-Cbuild/${input:platformID}/${input:buildType}",
 				"flash-${input:targetID}",
+			]
+		},
+		{
+			"label": "Emulate",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "test"
+			},
+			"command": "make",
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"-Cbuild/${input:platformID}/${input:buildType}",
+				"emulate-${input:targetID}",
 			]
 		},
 		{
@@ -273,42 +344,7 @@
 				"-Cbuild/${input:platformID}/${input:buildType}",
 				"clean",
 			]
-		},		
-		{
-			"label": "native: Clean",
-			"options": {
-				"cwd": "${workspaceRoot}"
-			},
-			"group": {
-				"kind": "build",
-			},
-			"command": "make",
-			"windows": {
-				"command": "mingw32-make"
-			},
-			"args": [
-				"-Cbuild/native/Debug",
-				"clean",
-			]
-		},
-		{
-			"label": "Run tests (PLATFORM MUST BE native, TARGET MUST BE all)",
-			"dependsOn": [
-				"Build"
-			],
-			"options": {
-				"cwd": "${workspaceRoot}",
-			},
-			"group": {
-				"kind": "test"
-			},
-			"command": "ctest",
-			"args": [
-				"--test-dir",
-				"build/${input:platformID}/${input:buildType}",
-				"--output-on-failure",
-			]
-		}
+	    }
 	],
 	"inputs": [
 		{
@@ -327,7 +363,6 @@
 			"description": "Enter the platform:",
 			"default": "stm32f446re", // PORTABILITY: change this to your platform
 			"options": [
-				"native",
 				"stm32f401re",
 				"stm32f411re",
 				"stm32f446re",
@@ -347,6 +382,16 @@
 			"options": [
 				"Debug",
 				"Release"
+			]
+		},
+		{
+			"id": "useSemihosting",
+			"type": "pickString",
+			"description": "Use semihosting:",
+			"default": "true",
+			"options": [
+				"true",
+				"false"
 			]
 		},
 		{

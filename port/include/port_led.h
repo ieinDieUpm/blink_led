@@ -1,8 +1,8 @@
 /**
  * @file port_led.h
- * @author Román Cárdenas (r.cardenas@upm.es)
- * @brief Port layer for the emulation of a LED of an embedded system in the native platform.
- * @date 01-01-2024
+ * @author Román Cárdenas (r.cardenas@upm.es), Josue Pagán Ortiz (j.pagan@upm.es)
+ * @brief Header file for the LED port layer.
+ * @date 01-03-2025
  */
 #ifndef PORT_LED_H_
 #define PORT_LED_H_
