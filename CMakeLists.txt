@@ -25,7 +25,7 @@ IF(NOT DEFINED CMAKE_BUILD_TYPE)
     MESSAGE(STATUS "No build type selected, using default (${CMAKE_BUILD_TYPE}). You can override it by passing -DCMAKE_BUILD_TYPE=<build_type> to cmake")
 ENDIF()
 IF (NOT DEFINED USE_SEMIHOSTING)
-    SET(USE_SEMIHOSTING true)
+    SET(USE_SEMIHOSTING false)
     MESSAGE(STATUS "Semihosting not specified, using default (${USE_SEMIHOSTING}). You can override it by passing -DUSE_SEMIHOSTING=<use_semihosting> to cmake")
 ENDIF()
 

@@ -24,7 +24,7 @@
 				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 				"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
-				"-DUSE_SEMIHOSTING=true",
+				
 				
 			],
 			"windows": {
@@ -33,7 +33,7 @@
 					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 					"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
-					"-DUSE_SEMIHOSTING=true",
+					
 					
 				]
 			}
@@ -52,7 +52,7 @@
 				"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 				"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
-				"-DUSE_SEMIHOSTING=true",
+				
 				
 			],
 			"windows": {
@@ -62,7 +62,7 @@
 					"-Bbuild/stm32f446re/Debug", // PORTABILITY: change this to your platform
 					"-DPLATFORM=stm32f446re",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
-					"-DUSE_SEMIHOSTING=true",
+					
 					
 				]
 			}
@@ -126,7 +126,7 @@
 				"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
 				"-DPLATFORM=stm32f405rg",    // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
-				"-DUSE_SEMIHOSTING=true",
+				
 				
 			],
 			"windows": {
@@ -135,7 +135,7 @@
 					"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
 					"-DPLATFORM=stm32f405rg",    // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
-					"-DUSE_SEMIHOSTING=true",
+					
 					
 				]
 			}
@@ -154,7 +154,7 @@
 				"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
 				"-DPLATFORM=stm32f405rg", // PORTABILITY: change this to your platform
 				"-DCMAKE_BUILD_TYPE=Debug",
-				"-DUSE_SEMIHOSTING=true",
+				
 				
 			],
 			"windows": {
@@ -164,7 +164,7 @@
 					"-Bbuild/stm32f405rg/Debug", // PORTABILITY: change this to your platform
 					"-DPLATFORM=stm32f405rg", // PORTABILITY: change this to your platform
 					"-DCMAKE_BUILD_TYPE=Debug",
-					"-DUSE_SEMIHOSTING=true",
+					
 					
 				]
 			}

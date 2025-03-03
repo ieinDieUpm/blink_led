@@ -15,9 +15,22 @@
       ],
       "preLaunchTask": "cortex-debug: Build (stm32f446re)", // PORTABILITY: change this to your platform
       "postLaunchCommands": [
-        "monitor arm semihosting enable",
+        "monitor arm semsemting enable",
       ],
       "svdFile": "${workspaceFolder}/../../svd/STM32F446.svd", // PORTABILITY: change this to your platform
+      "swoConfig": {
+        "enabled": true,
+        "cpuFrequency": 16000000,
+        "swoFrequency": 2000000,
+        "source": "probe",
+        "decoders": [
+          {
+            "type": "console",
+            "label": "ITM",
+            "port": 0
+          }
+        ]
+      }
     },
     {
       "name": "Clean and Debug (stm32f446re)", // PORTABILITY: PORTABILITY: change this to your platform
@@ -36,6 +49,19 @@
         "monitor arm semihosting enable",
       ],
       "svdFile": "${workspaceFolder}/../../svd/STM32F446.svd", // PORTABILITY: change this to your platform
+      "swoConfig": {
+        "enabled": true,
+        "cpuFrequency": 16000000,
+        "swoFrequency": 2000000,
+        "source": "probe",
+        "decoders": [
+          {
+            "type": "console",
+            "label": "ITM",
+            "port": 0
+          }
+        ]
+      }
     },
     {
       "name": "Debug (QEMU)",
