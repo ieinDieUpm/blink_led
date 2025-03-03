@@ -29,7 +29,6 @@
                 "${workspaceFolder}/port/include",
                 "${workspaceFolder}/port/stm32f4/**",
                 "${workspaceFolder}/common/include",
-                "/home/josueportiz/entornos/MatrixMCU/lib/fsm/include"
             ],
             "defines": [
                 "STM32F446xx"
