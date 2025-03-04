@@ -1,4 +1,16 @@
+/**
+ * @file test_led.c
+ * @brief Unit test for the LED.
+ *
+ * @author Josué Pagán (j.pagan@upm.es)
+ * @date 2025-03-01
+ */
+/* System dependent libraries */
+#include <stdlib.h>
 #include <unity.h>
+
+/* HW independent libraries */
+#include "port_system.h"
 #include "port_led.h"
 
 void setUp(void)
@@ -31,7 +43,10 @@ void test_led(void)
 
 int main(void)
 {
+    port_system_init();
+
     UNITY_BEGIN();
     RUN_TEST(test_led);
-    return UNITY_END();
+
+    exit(UNITY_END());
 }

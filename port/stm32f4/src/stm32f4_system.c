@@ -12,6 +12,10 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_conf.h"
 
+#ifdef USE_SEMIHOSTING
+extern void initialise_monitor_handles(void);
+#endif
+
 //------------------------------------------------------
 // PRIVATE (STATIC) VARIABLES
 //------------------------------------------------------
@@ -103,6 +107,10 @@ void SystemInit(void)
 
 uint32_t port_system_init()
 {
+#ifdef USE_SEMIHOSTING
+  initialise_monitor_handles();
+#endif
+
   // Init HAL
   HAL_Init(); /*!< Initialize the HAL Library */
 
