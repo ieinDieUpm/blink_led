@@ -130,7 +130,7 @@
         "default": "main",
         "options": [
           "main",
-          "test_blink",
+          "example_blink",
           "test_led",
         ]
       }

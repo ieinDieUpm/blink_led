@@ -23,6 +23,8 @@
 **
 ******************************************************************************/
 
+#ifndef USE_SEMIHOSTING /* when semihosting is used, no syscalls are needed */
+
 /* Includes */
 #include <sys/stat.h>
 #include <stdlib.h>
@@ -181,3 +183,5 @@ int _execve(char *name, char **argv, char **env)
 	errno = ENOMEM;
 	return -1;
 }
+
+#endif /* USE_SEMIHOSTING */
