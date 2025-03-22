@@ -6,7 +6,6 @@
  */
 // Include HW dependencies:
 #include "port_system.h"
-#include "stm32f4_system.h"
 
 // Include headers of different port elements:
 
