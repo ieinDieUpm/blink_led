@@ -131,7 +131,7 @@
 		  "options": [
 			"main",
 			"example_blink",
-			"test_led",
+			"test_led"
 		  ]
 		}
 		  }

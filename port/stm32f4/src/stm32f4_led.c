@@ -12,7 +12,7 @@
 #include "port_system.h"
 
 /* Microcontroller dependent includes */
-#include "stm32f4_system.h" // Used to get the system tick and to configure the GPIOs
+#include "stm32f4_led.h" // Used to get the GPIO pin and port of the LED
 
 // HW Nucleo-STM32F446RE:
 #define STM32F4_LD2_GPIO_PIN GPIO_PIN_5 /*!< GPIO pin of the LED2 in the Nucleo board */
@@ -20,19 +20,21 @@
 
 void port_led_gpio_setup(void)
 {
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    /* GPIO init structure */
+    GPIO_InitTypeDef led = {0}; // Initialize to 0 all fields by default
 
     /* GPIO Ports Clock Enable */
     __HAL_RCC_GPIOA_CLK_ENABLE();
 
-    /* Configure GPIO pin : PA5 */
-    GPIO_InitStruct.Pin = STM32F4_LD2_GPIO_PIN;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(STM32F4_LD2_GPIO_PORT, &GPIO_InitStruct);
+    /* Configure GPIO pin */
+    led.Pin = STM32F4_LD2_GPIO_PIN; // LED2 Pin
+    led.Mode = MODE_OUTPUT;         // A LED is an output device
+    led.Pull = GPIO_NOPULL;         // No pull-up or pull-down internal resistors
 
-    /* Configure GPIO pin Output Level */
+    /* Initialize GPIO pin */
+    HAL_GPIO_Init(STM32F4_LD2_GPIO_PORT, &led);
+
+    /* Set GPIO pin output level to low */
     HAL_GPIO_WritePin(STM32F4_LD2_GPIO_PORT, STM32F4_LD2_GPIO_PIN, GPIO_PIN_RESET);
 }
 
